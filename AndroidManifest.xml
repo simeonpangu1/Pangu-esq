@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.lawempire.sierraleone">
+
+    <!-- ── Permissions ─────────────────────────────────── -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+    <!-- Billing -->
+    <uses-permission android:name="com.android.vending.BILLING" />
+    <!-- Post notifications (API 33+) -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- ── Features ─────────────────────────────────────── -->
+    <uses-feature android:name="android.hardware.touchscreen" android:required="true" />
+    <uses-feature android:name="android.hardware.vibrator"    android:required="false" />
+
+    <application
+        android:name=".LawEmpireApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="false"
+        android:theme="@style/Theme.LawEmpire"
+        android:hardwareAccelerated="true"
+        android:largeHeap="true"
+        tools:targetApi="34">
+
+        <!-- ── SPLASH ──────────────────────────────────── -->
+        <activity
+            android:name=".activities.SplashActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.LawEmpire.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- ── CHARACTER CREATE ─────────────────────────── -->
+        <activity
+            android:name=".activities.CharacterCreateActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.LawEmpire" />
+
+        <!-- ── MAIN (bottom nav + fragments) ───────────── -->
+        <activity
+            android:name=".activities.MainActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.LawEmpire"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- ── COURTROOM (trial engine) ─────────────────── -->
+        <activity
+            android:name=".activities.CourtroomActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.LawEmpire" />
+
+        <!-- ── OFFICE BUILDER ───────────────────────────── -->
+        <activity
+            android:name=".activities.OfficeBuilderActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.LawEmpire" />
+
+        <!-- ── CHAMBERS & LAW FIRMS ─────────────────────── -->
+        <activity
+            android:name=".activities.ChambersActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.LawEmpire" />
+
+        <!-- ── COIN & GEM SHOP ──────────────────────────── -->
+        <activity
+            android:name=".activities.ShopActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.LawEmpire" />
+
+        <!-- ── TRIAL ARENA / MULTIPLAYER ────────────────── -->
+        <activity
+            android:name=".activities.MultiplayerActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.LawEmpire" />
+
+        <!-- ── ACHIEVEMENTS ─────────────────────────────── -->
+        <activity
+            android:name=".activities.AchievementsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.LawEmpire" />
+
+        <!-- ── MEMBERSHIP & COIN STATS ──────────────────── -->
+        <activity
+            android:name=".activities.MembershipActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.LawEmpire" />
+
+        <!-- ── SETTINGS (audio, vibration, account) ─────── -->
+        <activity
+            android:name=".activities.SettingsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.LawEmpire" />
+
+        <!-- ── GIFT CODE REDEMPTION ──────────────────────── -->
+        <activity
+            android:name=".activities.GiftCodeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.LawEmpire" />
+
+        <!-- ── POLICIES / LEGAL ──────────────────────────── -->
+        <activity
+            android:name=".activities.PolicyActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.LawEmpire" />
+
+        <!-- ── BACKGROUND MUSIC SERVICE ─────────────────── -->
+        <service
+            android:name=".audio.MusicService"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback"
+            android:stopWithTask="false" />
+
+        <!-- ── DEEP LINKS (lawempire.xyz) ───────────────── -->
+        <activity
+            android:name=".activities.DeepLinkActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.LawEmpire">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="https"
+                    android:host="lawempire.xyz"
+                    android:pathPrefix="/codes" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="lawempire" />
+            </intent-filter>
+        </activity>
+
+        <!-- File provider for sharing screenshots -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+
+        <!-- ── MONIME PAYMENT DEEP LINKS ─────────────────────────────── -->
+        <!-- Handles lawempire://payment/success and /cancel returns      -->
+        <activity
+            android:name=".activities.MonimeDeepLinkActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.LawEmpire"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="lawempire"
+                    android:host="payment" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>

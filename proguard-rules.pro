@@ -1,0 +1,4 @@
+-keep class com.lawempire.sierraleone.models.** { *; }
+-keepattributes Signature
+-keepattributes *Annotation*
+-dontwarn com.google.gson.**

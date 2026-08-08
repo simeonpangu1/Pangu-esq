@@ -1,0 +1,77 @@
+# ============================================================
+# local.properties — DO NOT commit this file to version control
+# Android Studio generates this automatically when you open
+# the project. If it is missing, create it with the line below.
+# ============================================================
+
+# Point to your local Android SDK installation.
+# WINDOWS example:
+# sdk.dir=C\:\\Users\\YourName\\AppData\\Local\\Android\\Sdk
+#
+# macOS example:
+# sdk.dir=/Users/YourName/Library/Android/sdk
+#
+# Linux example:
+# sdk.dir=/home/YourName/Android/Sdk
+
+# ============================================================
+# SDK REQUIREMENTS — install via Android Studio SDK Manager
+# (File → Settings → SDK Manager) or sdkmanager CLI
+# ============================================================
+#
+# Required SDK Platforms:
+#   ✓ Android 14.0  (API 34)  — targetSdk
+#   ✓ Android 7.0   (API 24)  — minSdk (for testing)
+#
+# Required SDK Tools:
+#   ✓ Android SDK Build-Tools  34.0.0
+#   ✓ Android SDK Platform-Tools (latest)
+#   ✓ Android Emulator
+#   ✓ Android SDK Command-line Tools (latest)
+#   ✓ Google Play Licensing Library
+#   ✓ Google Play services  (for billing)
+#
+# Recommended NDK (if native code added later):
+#   ✓ NDK (Side by side)  26.1.10909125
+#   ✓ CMake  3.22.1
+#
+# Java / JDK:
+#   ✓ JDK 17 (bundled with Android Studio Hedgehog+)
+#   Android Studio includes its own JDK — no separate install needed.
+#
+# Android Studio version requirement:
+#   ✓ Android Studio Hedgehog  2023.1.1   (minimum)
+#   ✓ Android Studio Iguana    2023.2.1   (recommended)
+#   ✓ Android Studio Jellyfish 2023.3.1   (latest stable)
+#
+# ============================================================
+# HOW TO OPEN THE PROJECT
+# ============================================================
+# 1. Unzip LawEmpireSL-Android-v2.zip
+# 2. Launch Android Studio
+# 3. File → Open → select the LawEmpireSL folder
+# 4. Wait for Gradle sync (first sync downloads ~200 MB)
+# 5. Accept any "Update Gradle" prompt
+# 6. Run on emulator: Click ▶ (API 34 emulator recommended)
+# 7. Run on device: Enable USB Debugging, plug in, click ▶
+#
+# ============================================================
+# GOOGLE PLAY BILLING SETUP (for IAP / paid features)
+# ============================================================
+# 1. Create app in Google Play Console → play.google.com/console
+# 2. Go to Monetisation → Products → Add in-app products
+# 3. Copy your Base64-encoded RSA public key from
+#    Setup → App integrity → App signing
+# 4. Paste it into app/build.gradle:
+#    buildConfigField "String", "PLAY_BILLING_KEY", '"YOUR_KEY_HERE"'
+# 5. In-app product IDs used by this app (define these in Play Console):
+#    - lawempire.devpoints.250         (250 Dev Points — $0.99)
+#    - lawempire.devpoints.750         (750 Dev Points — $2.99)
+#    - lawempire.devpoints.2000        (2,000 Dev Points — $6.99)
+#    - lawempire.devpoints.5000        (5,000 Dev Points — $14.99)
+#    - lawempire.devpoints.15000       (15,000 Dev Points — $29.99)
+#    - lawempire.coinpack.5000         (5,000 Coins — $0.99)
+#    - lawempire.coinpack.15000        (15,000 Coins — $2.99)
+#    - lawempire.coinpack.50000        (50,000 Coins — $6.99)
+#    - lawempire.elite.monthly         (Elite Pass — $4.99/month)
+#    - lawempire.elite.yearly          (Elite Pass — $39.99/year)
